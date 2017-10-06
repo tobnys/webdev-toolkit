@@ -4,13 +4,19 @@ $(".toggle-container").on("click", function(e){
         $(".main-nav").animate({
             height: "300px"
         })
-        $(".main-nav a").css("display", "block")
+        $(".inline-nav-container a").animate({
+            opacity: "1"
+        })
+        $(".main-nav").css("background-color", "rgba(0, 119, 131, 1)")
     }
     else {
         $(".main-nav").animate({
             height: "50px"
         })
-        $(".main-nav a").css("display", "none")
+        $(".inline-nav-container a").animate({
+            opacity: "0"
+        })
+        $(".main-nav").css("background-color", "rgba(0, 119, 131, 0.4)")
     }
 });
 

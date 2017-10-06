@@ -12,9 +12,9 @@ html {
     background-color: #084857;
     font-family: 'Open Sans', sans-serif;
 
-    /* GRADIENT BACKGROUND */
+    /* GRADIENT BACKGROUND  http://colorzilla.com/gradient-editor/#213e44+1,091114+100 */
     background: #213e44; /* Old browsers */
-    background: -moz-linear-gradient(top, #213e44 1%, #091114 100%); /* FF3.6-15 */
+    background: -moz-linear-gradient(top, #213D44 1%, #091114 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #213e44 1%,#091114 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #213e44 1%,#091114 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#213e44', endColorstr='#091114',GradientType=0 ); /* IE6-9 */
@@ -32,29 +32,33 @@ p {
 }
 
 .main-nav {
-    background-color: rgb(137, 195, 201);
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 119, 131, 0.4);
     border-bottom: 1px solid rgba(0,0,0,.15);
     height: 50px;
+    margin-bottom: 50px;
 }
 
 .main-nav a {
-    display: none;
+    opacity: 0;
+    display: block;
     font-weight: bold;  
-    color: black;
-    padding: 13px;
+    color: rgb(255, 255, 255);
+    padding: 12px;
     font-size: 14px;
     text-decoration: none;
-    transition: color 0.3s ease;
     text-align: center;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: rgb(0, 231, 255);
+    transition: color 0.3s ease;
 }
 
 .inline-nav-container {
     padding-top: 50px;
-}
-
-.main-nav a:hover {
-    color: white;
-    transition: color 0.3s ease;
 }
 
 .toggle-container {
@@ -66,13 +70,18 @@ p {
 
 .toggle-container span {
     display: block;
-    height: 6px;
-    width: 80%;
-    margin-left: 7px;
-    margin-top: 7px;
+    height: 5px;
+    width: 50%;
+    margin-left: 15px;
+    margin-top: 5px;
     background: #FFFFFF;
     border-radius: 9px;
     opacity: 1;
+    box-shadow: 1px 1px 2px 2px #717171; 
+}
+
+.hamburger {
+    padding-top: 5px;
 }
 
 .description {
@@ -117,16 +126,56 @@ footer {
     height: 100px;
     width: 100%;
     overflow:hidden;
-    background-color: rgb(1, 80, 88);
+    background-color: rgba(0, 80, 89, 0.20);
 }
 
 footer p {
-    padding-top: 10px;
+    padding-top: 25px;
     text-align: center;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.81);
     font-weight: bold;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px #626262; 
 }
 
+footer p a {
+    padding-top: 25px;
+    text-align: center;
+    color: rgba(0, 231, 255, 0.63);
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    transition: color 0.3s ease;
+    color: rgb(0, 231, 255);
+}
+
+.git-icon {
+    padding-top: 10px;
+    width: 30px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.git-icon i {
+    text-shadow: 1px 1px 1px #000000; 
+    color: rgba(0, 231, 255, 0.63);
+    font-size: 30px;
+    transition: color 0.5s ease;
+}
+
+.git-icon i:hover {
+    transition: color 0.3s ease;
+    color: rgb(0, 231, 255);
+}
+
+header {
+    padding-top: 50px;
+}
 
 @media only screen and (min-width: 480px) {
     .main-nav {
@@ -136,17 +185,17 @@ footer p {
     }
     .main-nav a {
         display: block;
-        color: black;
         padding: 13px;
         display: block;
         font-size: 14px;
         text-decoration: none;
         height: 100%;
-        transition: color 0.3s ease;
+        transition: color 0.3s ease, border 0.2s ease;
     }
+
     .main-nav a:hover {
-        color: white;
-        transition: color 0.3s ease;
+        border-bottom: 3px solid rgb(0, 231, 255);
+        transition: color 0.3s ease, border 0.2s ease;
     }
     #left-nav {
         float: left;
@@ -162,6 +211,11 @@ footer p {
 
     .inline-nav-container {
         padding-top: 0;
+    }
+
+    .inline-nav-container a {
+        display: block;
+        opacity: 1;
     }
 }
 
