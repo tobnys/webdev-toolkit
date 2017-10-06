@@ -1,10 +1,16 @@
 $(".toggle-container").on("click", function(e){
-    let value = $(".nav-container nav > ul").css("display");
-    if(value === "block") {
-        $(".nav-container nav > ul").css("display", "none");
+    let value = $(".main-nav").css("height");
+    if(value === "50px") {
+        $(".main-nav").animate({
+            height: "300px"
+        })
+        $(".main-nav a").css("display", "block")
     }
     else {
-        $(".nav-container nav > ul").css("display", "block");
+        $(".main-nav").animate({
+            height: "50px"
+        })
+        $(".main-nav a").css("display", "none")
     }
 });
 

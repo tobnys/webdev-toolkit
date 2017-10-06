@@ -7,35 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <link rel="stylesheet" type="text/css" href="/grid-sys.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="nav-container">
-        <nav class="main-nav" role="navigation">
-            <div class="toggle-container">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </div>
-            <ul>
-                <li>
-                    <a href="#" id="dropdown">Generations</a>
-                    <ul class="hidden">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                    </ul>
-                </li>
-                <li><a href="#">Cheat sheets</a></li>
-                <li><a href="#">Fonts</a></li>
-            </ul>
-        </nav>
-    </div>
+    <nav class="main-nav" role="navigation">
+        <div class="toggle-container">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="inline-nav-container">
+          <a href="#" id="left-nav">Generations</a>
+          <a href="#" id="left-nav">Cheat sheets</a>
+          <a href="#" id="left-nav">Fonts</a>
+          <a id="right-nav" href="#">Login</a>
+          <a id="right-nav" href="#">Sign up</a>       
+        </div>
+    </nav>
 
     <!-- LANDING PAGE -->
     <header>
-        <h1>Landing page</h1>
+      <div class="col-12">
+          <h1>Landing page</h1>
+      </div>
     </header>
+
+    <section class="description">
+      <div class="col-6">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in porta quam. Aliquam id viverra orci. Donec hendrerit, eros quis convallis fermentum, felis lectus imperdiet eros, non scelerisque velit sem eu sem. Donec risus dolor, porttitor ut est eu, ullamcorper placerat erat. Sed id mi sem. Sed tincidunt, augue eu venenatis tempor, libero augue faucibus urna, et venenatis mi nisi ac erat. Aliquam vel efficitur elit. Maecenas sed dapibus dui. Donec volutpat ut nisi eu elementum. Maecenas sed eros in nulla pharetra facilisis. Proin libero mauris, accumsan eu nunc quis, convallis hendrerit leo.</p>
+      </div>
+      <div class="col-6">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in porta quam. Aliquam id viverra orci. Donec hendrerit, eros quis convallis fermentum, felis lectus imperdiet eros, non scelerisque velit sem eu sem. Donec risus dolor, porttitor ut est eu, ullamcorper placerat erat. Sed id mi sem. Sed tincidunt, augue eu venenatis tempor, libero augue faucibus urna, et venenatis mi nisi ac erat. Aliquam vel efficitur elit. Maecenas sed dapibus dui. Donec volutpat ut nisi eu elementum. Maecenas sed eros in nulla pharetra facilisis. Proin libero mauris, accumsan eu nunc quis, convallis hendrerit leo.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="col-6">
+          <p>Made by Tobias Nyström</p>
+      </div>
+      <div class="col-6">
+          <p>GitHub Icon</p>
+      </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/client.js"></script>
