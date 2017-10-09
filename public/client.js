@@ -8,6 +8,7 @@ $(".toggle-container").on("click", function(e){
             opacity: "1"
         })
         $(".main-nav").css("background-color", "rgba(0, 119, 131, 1)")
+        $(".main-nav a").css("display", "block")
     }
     else {
         $(".main-nav").animate({
@@ -16,7 +17,8 @@ $(".toggle-container").on("click", function(e){
         $(".inline-nav-container a").animate({
             opacity: "0"
         })
-        $(".main-nav").css("background-color", "rgba(0, 119, 131, 0.4)")
+        $(".main-nav").css("background-color", "rgba(0, 119, 131, 0.2)")
+        $(".main-nav a").css("display", "none")
     }
 });
 

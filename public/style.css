@@ -1,16 +1,28 @@
+/* Color Palette
+Background: #084857
+Text: #111
+Light Relative: 
+Base Color: 
+Dark Relative: 
+*/
+
+/* ------------------------------------- */
+/* Basic Setup */
+/* ------------------------------------- */
+
+
 * {
     margin: 0;
     padding: 0;
     outline: none;
     box-sizing: border-box;
-    
 }
 
 html {
     position: relative;
     min-height: 100%;
     background-color: #084857;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 
     /* GRADIENT BACKGROUND  http://colorzilla.com/gradient-editor/#213e44+1,091114+100 */
     background: #213e44; /* Old browsers */
@@ -34,7 +46,7 @@ p {
 .main-nav {
     position: fixed;
     width: 100%;
-    background-color: rgba(0, 119, 131, 0.4);
+    background-color: rgba(0, 119, 131, 0.2);
     border-bottom: 1px solid rgba(0,0,0,.15);
     height: 50px;
     margin-bottom: 50px;
@@ -42,10 +54,10 @@ p {
 
 .main-nav a {
     opacity: 0;
-    display: block;
+    display: none;
     font-weight: bold;  
     color: rgb(255, 255, 255);
-    padding: 12px;
+    padding: 13px;
     font-size: 14px;
     text-decoration: none;
     text-align: center;
@@ -64,7 +76,7 @@ p {
 .toggle-container {
     float: right;
     width: 60px;
-    height: 100%;
+    height: 45px;
     cursor: pointer;
 }
 
@@ -84,36 +96,40 @@ p {
     padding-top: 5px;
 }
 
-.description {
+.landing-page {
     height: 100%;
 }
 
-.description:after {
+.landing-page:after {
     content: "";
     display: block;
 }
 
-.description p {
+.landing-page p {
     padding: 30px;
+    font-size: 14px;
 }
 
-.description h2 {
+.landing-page h2 {
     text-align: center;
     color: white;
     font-size: 23px;
     padding-bottom: 10px;
 }
 
-.description hr {
+.landing-page hr {
     width: 40%;
     text-align: center;
     margin: 0 auto;
-    
+}
+
+.center-nav {
+    display: none;
 }
 
 header h1 {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     font-size: 40px;
     color: #E3E3E3;
     text-align: center;
@@ -177,49 +193,110 @@ header {
     padding-top: 50px;
 }
 
+/* ------------------------------------- */
+/* Media Queries */
+/* ------------------------------------- */
+
+/*iPhone portrait*/
+@media only screen and (min-width: 320px) {
+    body {
+        color: purple;
+    }
+}
+
+
+/*iPhone landscape*/
 @media only screen and (min-width: 480px) {
+    body {
+        color: green;
+    }
+}
+
+
+/*ipad potrait*/
+@media only screen and (min-width: 768px) {
+    body {
+        color: red;
+    }
+}
+
+/*ipad lanscape / small laptop*/
+@media only screen and (min-width: 1024px) {
+    body {
+        color: blue;
+    }
+
     .main-nav {
         border-bottom: 1px solid rgba(0,0,0,.15);
         height: 50px;
         overflow: hidden;
     }
+
     .main-nav a {
         display: block;
-        padding: 13px;
-        display: block;
+        padding: 15px 5px;
         font-size: 14px;
         text-decoration: none;
         height: 100%;
-        transition: color 0.3s ease, border 0.2s ease;
+        border-bottom: 3px solid transparent;
+        -webkit-transition: color 0.3s, border 0.2s;
+        transition: color 0.3s ease, border 0.2s;
     }
 
     .main-nav a:hover {
         border-bottom: 3px solid rgb(0, 231, 255);
-        transition: color 0.3s ease, border 0.2s ease;
-    }
-    #left-nav {
-        float: left;
+        -webkit-transition: color 0.3s, border 0.2s;
+        transition: color 0.3s ease, border 0.2s;
     }
 
-    #right-nav {
-        float: right;
+    .inline-nav-container {
+        padding-top: 0;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .inline-nav-container ul {
+        list-style: none;
+    }
+
+    .inline-nav-container ul li {
+        display: inline-block;
+    }
+
+    .inline-nav-container ul li a {
+        display: inline-block;
+    }
+
+    .left-nav {
+        display: inline-block;
+        width: 32%;
+        text-align: left;
+    }
+
+    .right-nav {
+        display: inline-block;
+        width: 32%;
+        text-align: right;
+    }
+
+    .center-nav {
+        display: inline-block;
+        width: 32%;
+        text-align: center;
     }
 
     .toggle-container {
         display: none;
     }
 
-    .inline-nav-container {
-        padding-top: 0;
-    }
-
     .inline-nav-container a {
-        display: block;
         opacity: 1;
     }
-}
 
-@media only screen and (min-width: 1024px) {
-
+    .landing-page p {
+        line-height: 1.4;
+    }
 }
 
