@@ -203,6 +203,8 @@ footer p a:hover {
 
 .login-page {
     height: 100%;
+    display: none;
+    opacity: 0;
 }
 
 .login-page:after {
@@ -279,6 +281,11 @@ footer p a:hover {
 /* REGISTRATION PAGE */
 /* ------------------------------------- */
 
+.register-page {
+    display: none;
+    opacity: 0;
+}
+
 .register-page form {
     margin: 0 auto;
     width: 300px;
@@ -329,6 +336,11 @@ footer p a:hover {
 /* ------------------------------------- */
 /* Generation Page */
 /* ------------------------------------- */
+
+.generation-page {
+    display: none;
+    opacity: 0;
+}
 
 .generation-page form {
     margin: 0 auto;
@@ -437,6 +449,8 @@ footer p a:hover {
 
 .category-page {
     margin-bottom: 60px;
+    opacity: 0;
+    display: none;    
 }
 
 .category-page p {
@@ -465,6 +479,45 @@ footer p a:hover {
     border: 1px solid rgba(18, 255, 248, 0.4);
     border-radius: 5px;
     margin-top: 20px;
+}
+
+/* ------------------------------------- */
+/* FONT PAGE */
+/* ------------------------------------- */
+
+.font-page {
+    margin-bottom: 60px;
+    opacity: 0;
+    display: none;    
+}
+
+.font-card {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: 250px;
+    border: 1px solid rgba(18, 255, 248, 0.4);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.font-card h2 {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    padding-top: 10px;
+}
+
+.font-card hr {
+    width: 40%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.font-card p {
+    padding: 30px;
+    font-size: 14px;
 }
 
 
@@ -604,5 +657,25 @@ footer p a:hover {
         -webkit-filter: brightness(1) grayscale(0%);
         transition: filter 0.4s ease, border 0.5s ease;
     }
+
+    /* ------------------------------------- */
+    /* FONT PAGE */
+    /* ------------------------------------- */
+
+    .font-page .font-card {
+        width: 100%;
+        filter: brightness(0.8) grayscale(50%);
+        -webkit-filter: brightness(0.8) grayscale(50%);
+        transition: filter 0.4s ease, border 0.5s ease;
+    }
+
+    .font-page .font-card:hover {
+        border: 1px solid rgba(18, 255, 248, 0.8);
+        filter: brightness(1) grayscale(0%);
+        -webkit-filter: brightness(1) grayscale(0%);
+        transition: filter 0.4s ease, border 0.5s ease;
+        cursor: pointer;
+    }
+
 }
 
