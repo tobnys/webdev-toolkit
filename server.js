@@ -14,13 +14,12 @@ app.get("/", (req, res) => {
 });
 
 let server;
-
 function runServer() {
+    const port = process.env.PORT || 3000
     return new Promise((resolve, reject) => {
-        const port = process.env.PORT || 3000
-        server = app.listen(port, function () {
+        server = app.listen(port, () => {
             console.log('Listening on localhost:' + port);
-            resolve(server);
+            resolve();
         }).on("error", err => {
             reject(err);
         });
@@ -34,7 +33,7 @@ function closeServer(){
                 reject(err);
                 return;
             }
-            resolve();
+            else resolve();
         });
     });
 };

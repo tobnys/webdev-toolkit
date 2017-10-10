@@ -1,9 +1,9 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
+const should = chai.should();
 
 const {app, runServer, closeServer} = require("../server");
 
-const should = chai.should();
 
 chai.use(chaiHttp);
 
@@ -17,10 +17,11 @@ describe("Endpoints", function(){
         return closeServer();
     });
 
-
-    it("Should return OK on root GET", function(){
-        return chai.request(app).get("/").then(res => {
-            res.should.have.status(200);
+    describe("GET endpoint", function() {
+        it("should return status 200 on root GET", function(){
+            return chai.request(app).get("/").then(function(res){
+                res.should.have.status(200);
+            });
         });
     });
 });
