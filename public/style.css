@@ -66,7 +66,7 @@ footer {
 }
 
 footer p {
-    padding-top: 25px;
+    padding-top: 17px;
     text-align: center;
     color: rgba(255, 255, 255, 0.81);
     font-weight: bold;
@@ -142,22 +142,23 @@ footer p a:hover {
     padding-top: 5px;
 }
 
-.git-icon {
-    padding-top: 10px;
-    width: 30px;
-    margin: 0 auto;
-    display: block;
+.icon-group {
     text-align: center;
+    padding-top: 20px;
 }
 
-.git-icon i {
+.icon {
+    padding: 5px;
+}
+
+.icon i {
     text-shadow: 1px 1px 1px #000000; 
     color: rgba(0, 231, 255, 0.63);
     font-size: 30px;
     transition: color 0.5s ease;
 }
 
-.git-icon i:hover {
+.icon i:hover {
     transition: color 0.3s ease;
     color: rgb(0, 231, 255);
 }

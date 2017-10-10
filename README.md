@@ -3,6 +3,8 @@
 
 # Screenshots
 
+# Goal
+
 # Use Case
 
 # Initial UX

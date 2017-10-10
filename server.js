@@ -13,24 +13,34 @@ app.get("/", (req, res) => {
 
 });
 
-var runServer = function (callback) {
-    app.listen(config.PORT, function () {
-        console.log('Listening on localhost:' + config.PORT);
-        if (callback) {
-            callback();
-        }
+let server;
+
+function runServer() {
+    return new Promise((resolve, reject) => {
+        const port = process.env.PORT || 3000
+        server = app.listen(port, function () {
+            console.log('Listening on localhost:' + port);
+            resolve(server);
+        }).on("error", err => {
+            reject(err);
+        });
+    });
+};
+
+function closeServer(){
+    return new Promise((resolve, reject) => {
+        server.close(err => {
+            if(err) {
+                reject(err);
+                return;
+            }
+            resolve();
+        });
     });
 };
 
 if (require.main === module) {
-    runServer(function (err) {
-        if (err) {
-            console.error(err);
-        }
-    });
+    runServer().catch(err => console.error(err));
 };
 
-exports.app = app;
-exports.runServer = runServer;
-
-app.listen(8080);
+module.exports = {app, runServer, closeServer};
