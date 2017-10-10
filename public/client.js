@@ -116,9 +116,7 @@
         setActiveButton(this);
     });
 
-
     // COPY TO CLIPBOARD FUNCTIONS
-
     function copyToClipboard(elem){
         var $temp = $("<input>");
         $("body").append($temp);
