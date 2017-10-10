@@ -62,22 +62,113 @@
     <section class="login-page">
         <header>
         <div class="col-12">
-            <h1>Welcome!</h1>
+            <h1>Login</h1>
+        </div>
+        </header>
+        <div class="row">
+            <div class="col-12">
+                <form name="login-form">
+                    <label for="username">Username</label>
+                    <input type="text">
+                    <label for="password">Password</label>
+                    <input type="password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="register-page">
+        <header>
+        <div class="col-12">
+            <h1>Register</h1>
+        </div>
+        </header>
+        <div class="row">
+            <div class="col-12">
+                <form name="register-form">
+                    <label for="username">Username</label>
+                    <input type="text">
+                    <label for="password">Password</label>
+                    <input type="password">
+                    <label for="password-2">Re-enter password</label>
+                    <input type="password">
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="generation-page">
+        <header>
+        <div class="col-12">
+            <h1>Generation page</h1>
         </div>
         </header>
         <div class="row">
             <div class="col-6">
-                <h2>Application description</h2>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in porta quam. Aliquam id viverra orci. Donec hendrerit, eros quis convallis fermentum, felis lectus imperdiet eros, non scelerisque velit sem eu sem. Donec risus dolor, porttitor ut est eu, ullamcorper placerat erat. Sed id mi sem. Sed tincidunt, augue eu venenatis tempor, libero augue faucibus urna, et venenatis mi nisi ac erat. Aliquam vel efficitur elit. Maecenas sed dapibus dui. Donec volutpat ut nisi eu elementum. Maecenas sed eros in nulla pharetra facilisis. Proin libero mauris, accumsan eu nunc quis, convallis hendrerit leo.</p>
+                <div class="input-container">
+                    <form name="input-form">
+                        <legend>Settings</legend>
+                        <label id="num-paragraphs">Number of paragraphs (1-10)</label>
+                        <input type="number">
+                        <label id="num-sentence">Number of sentences per paragraph (1-5)</label>
+                        <input type="number">
+                        <label id="num-words">Number of words per sentence (1-30)</label>
+                        <input type="number">
+                        <button>Generate</button>
+                        <button>Randomize</button>
+                    </form>
+                </div>
             </div>
             <div class="col-6">
-                <h2>Demo</h2>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in porta quam. Aliquam id viverra orci. Donec hendrerit, eros quis convallis fermentum, felis lectus imperdiet eros, non scelerisque velit sem eu sem. Donec risus dolor, porttitor ut est eu, ullamcorper placerat erat. Sed id mi sem. Sed tincidunt, augue eu venenatis tempor, libero augue faucibus urna, et venenatis mi nisi ac erat. Aliquam vel efficitur elit. Maecenas sed dapibus dui. Donec volutpat ut nisi eu elementum. Maecenas sed eros in nulla pharetra facilisis. Proin libero mauris, accumsan eu nunc quis, convallis hendrerit leo.</p>
+                <div class="output-container">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in porta quam. Aliquam id viverra orci. Donec hendrerit, eros quis convallis fermentum, felis lectus imperdiet eros, non scelerisque velit sem eu sem. Donec risus dolor, porttitor ut est eu, ullamcorper placerat erat. Sed id mi sem. Sed tincidunt, augue eu venenatis tempor, libero augue faucibus urna, et venenatis mi nisi ac erat. Aliquam vel efficitur elit. Maecenas sed dapibus dui. Donec volutpat ut nisi eu elementum. Maecenas sed eros in nulla pharetra facilisis. Proin libero mauris, accumsan eu nunc quis, convallis hendrerit leo.</p>
+                </div>
+                <div class="output-button-container">
+                    <button>Copy</button>
+                </div>
             </div>
         </div>
     </section>
+    
+    <hr>
+
+    <section class="category-page">
+        <header>
+            <div class="col-12">
+                <h1>Category page</h1>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-4">
+                <a href="#"><img src="https://pluralsight.imgix.net/paths/path-icons/html5-7ac65c8ec0.png"></a>
+            </div>
+            <div class="col-4">
+                <a href="#"><img src="https://pluralsight.imgix.net/paths/path-icons/css-c9b214f0d7.png"></a>
+            </div>
+            <div class="col-4">
+                <a href="#"><img src="https://pluralsight.imgix.net/paths/path-icons/javascript-36f5949a45.png"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <a href="#"><img src="https://pluralsight.imgix.net/paths/path-icons/jquery-c93ba170c1.png"></a>
+            </div>
+            <div class="col-4">
+                <a href="#"><img src="https://pluralsight.imgix.net/paths/path-icons/nodejs-601628d09d.png"></a>
+            </div>
+            <div class="col-4">
+                <a href="#"><img src="https://pluralsight2.imgix.net/paths/images/react-0f6558f88f.png"></a>
+            </div>
+        </div>
+    </section>
+
+    <hr>
 
     <footer>
       <div class="row">
