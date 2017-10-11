@@ -1,5 +1,4 @@
 (function () {
-
     let currentPage = ".landing-page";
 
     // HAMBURGER MENU FUNCTIONS
@@ -51,7 +50,6 @@
                 $(".main-nav a").css("display", "none")
             }
         }
-        else console.log("Not in mobile state");
     }
 
     // PAGE NAVIGATION 
@@ -69,16 +67,16 @@
             });
         });
     }
-        
-    function setInactiveButtons(){
-        $("li").children().css("border-bottom", "0")
-        $("li").children().css("color", "rgb(255, 255, 255)")
-    }
 
     function setActiveButton(button){
-        setInactiveButtons();
         $(button).css("border-bottom", "3px solid rgb(0, 231, 255)");
         $(button).css("color", "rgb(0, 231, 255)");
+
+        console.log($("li").children())
+        console.log(button.id)  
+
+        $("li").children().not(`#${button.id}`).css("border-bottom", "3px solid rgba(0, 231, 255, 0)");
+        $("li").children().not(`#${button.id}`).css("color", "rgba(255, 255, 255, 1)");
     }
 
     $("#page-generations").click(function(e){
@@ -95,11 +93,28 @@
         setActiveButton(this);
     });
 
+    // CATEGORY SUB-PAGES
+    $("#c-html, #c-css, #c-js, #c-jquery, #c-node, #c-react").click(function(e){
+        e.preventDefault();
+        switchPage(currentPage, ".category-sub-page");
+    });
+
+    // CATEGORY PAGE BACK ARROW
+    $("#back-arrow").click(function(e){
+        e.preventDefault();
+        switchPage(currentPage, ".category-page");
+    });
+
     $("#page-fonts").click(function(e){
         e.preventDefault();
         closeMenu();
         switchPage(currentPage, ".font-page");
         setActiveButton(this);
+    });
+
+    // FONT PAGE BUTTONS
+    $(".sort-container button").click(function(e){
+        webFontsReq(e.target.id);
     });
 
     $("#page-login").click(function(e){
@@ -129,9 +144,57 @@
         copyToClipboard("#output-text");
     });
 
+
+    // GOOGLE WEB FONTS API
+    function webFontsReq(target){
+        $.ajax({
+            method: "GET",
+            url: `https://www.googleapis.com/webfonts/v1/webfonts`,
+            data: {
+                key: "AIzaSyCFi8QJL_jEJdhXu-tr-1mqLpoOJzJuYGg",
+                sort: `${target}`
+            },
+            success: function(res){
+                console.log("API call success");
+                console.log(res.items[0]);
+                appendHTML(res);
+                applyFonts(res);
+            },
+            error: function(err){
+                console.log("API call failed")
+            },
+        })
+    };
+
+    function appendHTML(f){
+        $(".card-1 h2").text(f.items[0].family);
+        $(".card-2 h2").text(f.items[1].family);
+        $(".card-3 h2").text(f.items[2].family);
+        $(".card-4 h2").text(f.items[3].family);
+        $(".card-5 h2").text(f.items[4].family);
+        $(".card-6 h2").text(f.items[5].family);
+
+        $("#card-1").attr("href", `https://fonts.google.com/specimen/${f.items[0].family}`);
+        $("#card-2").attr("href", `https://fonts.google.com/specimen/${f.items[1].family}`);
+        $("#card-3").attr("href", `https://fonts.google.com/specimen/${f.items[2].family}`);
+        $("#card-4").attr("href", `https://fonts.google.com/specimen/${f.items[3].family}`);
+        $("#card-5").attr("href", `https://fonts.google.com/specimen/${f.items[4].family}`);
+        $("#card-6").attr("href", `https://fonts.google.com/specimen/${f.items[5].family}`);
+    };
+
+    function applyFonts(f){
+        WebFont.load({
+            google: {
+              families: [f.items[0].family, f.items[1].family, f.items[2].family, f.items[3].family, f.items[4].family, f.items[5].family]
+            }
+        });
+
+        $(".card-1").css("font-family", `${f.items[0].family}, ${f.items[0].category}`);
+        $(".card-2").css("font-family", `${f.items[1].family}, ${f.items[1].category}`);
+        $(".card-3").css("font-family", `${f.items[2].family}, ${f.items[2].category}`);
+        $(".card-4").css("font-family", `${f.items[3].family}, ${f.items[3].category}`);
+        $(".card-5").css("font-family", `${f.items[4].family}, ${f.items[4].category}`);
+        $(".card-6").css("font-family", `${f.items[5].family}, ${f.items[5].category}`);
+    };
+
 })();
-
-
-
-// border-bottom: 3px solid rgb(0, 231, 255);
-// color: rgb(0, 231, 255);

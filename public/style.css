@@ -89,6 +89,10 @@ footer p a:hover {
     color: rgb(0, 231, 255);
 }
 
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
 .main-nav {
     position: fixed;
     width: 100%;
@@ -450,6 +454,7 @@ footer p a:hover {
 
 .category-page {
     margin-bottom: 60px;
+    padding-bottom: 40px;
     opacity: 0;
     display: none;    
 }
@@ -483,11 +488,84 @@ footer p a:hover {
 }
 
 /* ------------------------------------- */
+/* CATEGORY SUB-PAGE */
+/* ------------------------------------- */
+
+.category-sub-page {
+    margin-bottom: 60px;
+    opacity: 0;
+    display: none; 
+}
+
+.category-sub-page p {
+    padding: 30px;
+    font-size: 14px;
+}
+
+.category-sub-page h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.category-sub-page hr {
+    width: 20%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.category-sub-page .container {
+    margin: 0 auto;
+    width: 80%;
+    height: 200px;
+    border: 1px solid white;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.arrow-container {
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 80%;
+}
+
+.arrow-container i {
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #000000; 
+    color: rgba(0, 231, 255, 0.63);
+    transition: color 0.5s ease;
+}
+
+.arrow-container i:hover {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: rgb(0, 231, 255);
+}
+
+.category-sub-page a {
+    padding-top: 25px;
+    text-align: center;
+    color: rgba(0, 231, 255, 0.63);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.category-sub-page a:hover {
+    transition: color 0.3s ease;
+    color: rgb(0, 231, 255);
+}
+
+/* ------------------------------------- */
 /* FONT PAGE */
 /* ------------------------------------- */
 
 .font-page {
-    margin-bottom: 60px;
+    padding-bottom: 40px;
     opacity: 0;
     display: none;    
 }
@@ -500,13 +578,19 @@ footer p a:hover {
     border: 1px solid rgba(18, 255, 248, 0.4);
     border-radius: 5px;
     margin-top: 20px;
+    overflow: hidden;
 }
+
+.font-card a {
+    text-decoration: none;
+}
+
 
 .font-card h2 {
     text-decoration: none;
     text-align: center;
     color: white;
-    font-size: 23px;
+    font-size: 18px;
     padding-top: 10px;
 }
 
@@ -521,6 +605,31 @@ footer p a:hover {
     font-size: 14px;
 }
 
+.font-page .sort-container {
+    text-align: center;
+}
+
+.font-page .sort-container button {
+    text-align: center;
+    margin: 0 auto;
+    width: 100px;
+    height: 40px;
+    border: 1px solid white;
+    margin-top: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: rgba(48, 209, 255, 0.00);
+    color: white;
+    transition: background-color 0.3s ease, border 0.3s ease, text-shadow 0.3s ease;
+}
+
+.font-page .sort-container button:hover {    
+    cursor: pointer;
+    border: 2px solid #00FFF2;
+    text-shadow: 1px 1px 5px rgb(48, 48, 48);
+    background-color: rgb(0, 194, 255);
+    transition: background-color 0.3s ease, border 0.3s ease, text-shadow 0.3s ease;
+}
 
 /* ------------------------------------- */
 /* Media Queries */
