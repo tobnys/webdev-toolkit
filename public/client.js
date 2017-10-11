@@ -142,8 +142,30 @@
 
     $("#copy-btn").click(function(e){
         copyToClipboard("#output-text");
+        showMessage();
     });
 
+    // FUNCTIONS FOR USER FEEDBACK ON INPUT
+    let timer;
+    function showMessage() {
+        $(".feedback-2").animate({
+            opacity: "1",   
+        })
+        $(".feedback-2 p").animate({
+            paddingTop: "0"
+        });
+        timer = setTimeout(hideMessage, 4000);
+    }
+
+    function hideMessage(){
+        $(".feedback-2").animate({
+            opacity: "0",   
+        })
+        $(".feedback-2 p").animate({
+            paddingTop: "20"
+        });
+        clearTimeout(timer);
+    }
 
     // GOOGLE WEB FONTS API
     function webFontsReq(target){

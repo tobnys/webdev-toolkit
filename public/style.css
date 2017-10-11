@@ -376,6 +376,10 @@ a:-webkit-any-link {
     font-size: 14px;
 }
 
+#generate-btn {
+    margin-top: 25px;
+}
+
 .generation-page button {
     margin: 0 auto;
     width: 40%;
@@ -402,7 +406,6 @@ a:-webkit-any-link {
     border: 1px solid white;
     width: 300px;
     height: 400px;
-    margin-bottom: 40px;
 }
 
 .generation-page .output-container {
@@ -417,7 +420,7 @@ a:-webkit-any-link {
     font-size: 12px;
 }
 
-.generation-page .output-button-container {
+.generation-page .bottom-button-container {
     margin: 0 auto;
     border: 1px solid white;
     border-top: 1px solid rgba(0,0,0,0);
@@ -426,7 +429,7 @@ a:-webkit-any-link {
     margin-bottom: 40px;
 }
 
-.generation-page .output-button-container button { 
+.generation-page .bottom-button-container button { 
     display: block;
     margin: 0 auto;
     width: 50%;
@@ -440,13 +443,30 @@ a:-webkit-any-link {
     transition: background-color 0.3s ease, border 0.3s ease, text-shadow 0.3s ease;
 }
 
-.generation-page .output-button-container button:hover {    
+.generation-page .bottom-button-container button:hover {    
     cursor: pointer;
     border: 2px solid #00FFF2;
     text-shadow: 1px 1px 5px rgb(48, 48, 48);
     background-color: rgb(0, 194, 255);
     transition: background-color 0.3s ease, border 0.3s ease, text-shadow 0.3s ease;
 }
+
+.feedback-container {
+    text-align: center;
+}
+
+.feedback-container p {
+    font-size: 16px;
+}
+
+.feedback-2 {
+    opacity: 0;
+}
+
+.feedback-2 p {
+    padding-top: 20px;
+}
+
 
 /* ------------------------------------- */
 /* CATEGORY PAGE */
