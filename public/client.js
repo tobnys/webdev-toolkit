@@ -155,7 +155,7 @@
             paddingTop: "0"
         });
         timer = setTimeout(hideMessage, 4000);
-    }
+    }   
 
     function hideMessage(){
         $(".feedback-2").animate({
@@ -171,14 +171,9 @@
     function webFontsReq(target){
         $.ajax({
             method: "GET",
-            url: `https://www.googleapis.com/webfonts/v1/webfonts`,
-            data: {
-                key: "AIzaSyCFi8QJL_jEJdhXu-tr-1mqLpoOJzJuYGg",
-                sort: `${target}`
-            },
+            url: `http://localhost:3000/api/functional/fonts/${target}`,
             success: function(res){
                 console.log("API call success");
-                console.log(res.items[0]);
                 appendHTML(res);
                 applyFonts(res);
             },
@@ -218,5 +213,33 @@
         $(".card-5").css("font-family", `${f.items[4].family}, ${f.items[4].category}`);
         $(".card-6").css("font-family", `${f.items[5].family}, ${f.items[5].category}`);
     };
+
+    // GENERATION API
+    $("#generate-btn").click(function(e){
+        e.preventDefault();
+        var pValue = $("#num-p-value").val();
+        var sValue = $("#num-s-value").val();
+        var wValue = $("#num-w-value").val();
+        generationReq(pValue, sValue, wValue);
+    });
+
+    function generationReq(p, s, w){
+        $.ajax({
+            method: "GET",
+            url: `http://localhost:3000/api/functional/text/`,
+            data: {
+                p: p,
+                s: s,
+                w: w
+            },
+            success: function(res){
+                console.log("API call success");
+                console.log(res);
+            },
+            error: function(err){
+                console.log("API call failed")
+            },
+        })
+    }
 
 })();

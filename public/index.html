@@ -21,7 +21,7 @@
         </div>
         <div class="inline-nav-container">
           <ul class="left-nav">
-              <li><a href="#" id="page-generations">Generations</a></li>
+              <li><a href="#" id="page-generations">Generation</a></li>
               <li><a href="#" id="page-categories">Cheat sheets</a></li>
               <li><a href="#" id="page-fonts">Fonts</a></li>
           </ul>
@@ -112,13 +112,13 @@
                 <div class="input-container">
                     <form name="input-form">
                         <legend>Settings</legend>
-                        <label id="num-paragraphs">Number of paragraphs (1-10)</label>
-                        <input type="number">
-                        <label id="num-sentence">Number of sentences per paragraph (1-5)</label>
-                        <input type="number">
-                        <label id="num-words">Number of words per sentence (1-30)</label>
-                        <input type="number">
-                        <button id="generate-btn">Generate</button>
+                        <label id="num-paragraphs" for="paragraph">Number of paragraphs (1-10)</label>
+                        <input id="num-p-value" type="number" name="paragraph">
+                        <label id="num-sentence" for="sentence">Number of sentences per paragraph (1-5)</label>
+                        <input id="num-s-value" type="number" name="sentence">
+                        <label id="num-words" for="words">Number of words per sentence (1-30)</label>
+                        <input id="num-w-value" type="number" name="words">
+                        <button id="generate-btn" type="submit">Generate</button>
                     </form>
                 </div>
                 <div class="bottom-button-container">

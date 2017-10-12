@@ -1,1 +1,3 @@
-module.exports = {authRouter, usersRouter};
+const {functionalRouter} = require("./functionalRouter");
+
+module.exports = {functionalRouter};

@@ -4,10 +4,12 @@ const morgan = require("morgan");
 const config = require("./config");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const passport = require("passport");
+const cors = require("cors");
 
 // OBJECT DESTRUCTURING
 const {Image} = require("./models/image");
-const {authRouter, usersRouter} = require("./api/exports");
+const {functionalRouter} = require("./api/exports");
 
 // INITIALIZE THE EXPRESS APP
 const app = express();
@@ -15,10 +17,13 @@ const app = express();
 // APP.USE
 app.use(morgan("common"));
 app.use(express.static("public"));
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true})); 
 
-app.use(passport.initialize());
-passport.use(basicStrategy);
-passport.use(jwtStrategy);
+//app.use(passport.initialize());
+//passport.use(basicStrategy);
+//passport.use(jwtStrategy);
 
 // MONGOOSE PROMISES
 mongoose.Promise = global.Promise;
@@ -28,8 +33,9 @@ app.get("/", (req, res) => {
 
 });
 
-app.use("/api/users/", usersRouter);
-app.use("/api/auth", authRouter);
+app.use("/api/functional/", functionalRouter);
+//app.use("/api/users/", usersRouter);
+//app.use("/api/auth", authRouter);
 
 // CORS
 app.use(function(req, res, next) {
@@ -43,9 +49,7 @@ app.use(function(req, res, next) {
 });
 
 // Catch all other routes that do not send a response and give an error message to the client.
-app.all("*", (req, res) => {
-    res.sendStatus(500);
-});
+
 
 // Seed database function
 function seedDatabase(){
@@ -65,7 +69,7 @@ function seedDatabase(){
 // Check for database collections and seed if nothing is found
 Image.findOne({id: 1}).exec(function(err, res) {
     if(res === null) {
-        seedDatabase();
+        //seedDatabase();
     }
 });
 
