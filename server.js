@@ -3,17 +3,43 @@ const express = require("express");
 const morgan = require("morgan");
 const config = require("./config");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
+// OBJECT DESTRUCTURING
 const {Image} = require("./models/image");
+const {authRouter, usersRouter} = require("./api/exports");
 
+// INITIALIZE THE EXPRESS APP
 const app = express();
 
+// APP.USE
 app.use(morgan("common"));
 app.use(express.static("public"));
+
+app.use(passport.initialize());
+passport.use(basicStrategy);
+passport.use(jwtStrategy);
+
+// MONGOOSE PROMISES
+mongoose.Promise = global.Promise;
 
 // ROUTES
 app.get("/", (req, res) => {
 
+});
+
+app.use("/api/users/", usersRouter);
+app.use("/api/auth", authRouter);
+
+// CORS
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+    if (req.method === 'OPTIONS') {
+        return res.send(204);
+    }
+    next();
 });
 
 // Catch all other routes that do not send a response and give an error message to the client.
