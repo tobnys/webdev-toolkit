@@ -10,7 +10,6 @@ Dark Relative:
 /* Basic Setup */
 /* ------------------------------------- */
 
-
 * {
     margin: 0;
     padding: 0;
@@ -66,7 +65,7 @@ footer {
 }
 
 footer p {
-    padding-top: 17px;
+    margin-top: 17px;
     text-align: center;
     color: rgba(255, 255, 255, 0.81);
     font-weight: bold;
@@ -75,7 +74,6 @@ footer p {
 }
 
 footer p a {
-    padding-top: 25px;
     text-align: center;
     color: rgba(0, 231, 255, 0.63);
     font-weight: bold;
@@ -457,6 +455,14 @@ a:-webkit-any-link {
 
 .feedback-container p {
     font-size: 16px;
+}
+
+.feedback-1 {
+    opacity: 0;  
+}
+
+.feedback-1 p {
+    padding-top: 20px; 
 }
 
 .feedback-2 {

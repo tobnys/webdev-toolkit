@@ -8,8 +8,8 @@ const passport = require("passport");
 const cors = require("cors");
 
 // OBJECT DESTRUCTURING
-const {Image} = require("./models/image");
 const {functionalRouter} = require("./api/exports");
+const {Text} = require("./models/text");
 
 // INITIALIZE THE EXPRESS APP
 const app = express();
@@ -50,26 +50,18 @@ app.use(function(req, res, next) {
 
 // Catch all other routes that do not send a response and give an error message to the client.
 
-
 // Seed database function
 function seedDatabase(){
     console.log("Seeding database");
-    Image.create({
-        title: "Test Image 1",
-        URL: "https://i.imgur.com/IIDpHZT.jpg",
-        category: "Coding"
-    });
-    Image.create({
-        title: "Test Image 2",
-        URL: "https://i.imgur.com/qyGSUGo.jpg",
-        category: "Nature"
+    Text.create(["Hello1", "Hello2"], (err, value) => {
+        console.log(value);
     });
 }
 
 // Check for database collections and seed if nothing is found
-Image.findOne({id: 1}).exec(function(err, res) {
+Text.find().exec(function(err, res) {
     if(res === null) {
-        //seedDatabase();
+        seedDatabase();
     }
 });
 

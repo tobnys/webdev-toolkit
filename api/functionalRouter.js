@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const axios = require("axios");
 
-const {User} = require('../models/user');;
+const {User} = require('../models/user');
 
 const functionalRouter = express.Router();
 
@@ -24,7 +24,11 @@ functionalRouter.get("/fonts/:sort", (req, res) => {
 
 functionalRouter.get("/text/", (req, res) => {
     console.log(req.query);
-    generateString(req.query.p, req.query.s, req.query.w)
+    generateString(req.query.p);
 });
+
+function generateString(p) {
+    
+};
 
 module.exports = {functionalRouter};

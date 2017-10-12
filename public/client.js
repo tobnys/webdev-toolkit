@@ -142,22 +142,22 @@
 
     $("#copy-btn").click(function(e){
         copyToClipboard("#output-text");
-        showMessage();
+        showCopyMessage();
     });
 
     // FUNCTIONS FOR USER FEEDBACK ON INPUT
     let timer;
-    function showMessage() {
+    function showCopyMessage(target) {
         $(".feedback-2").animate({
             opacity: "1",   
         })
         $(".feedback-2 p").animate({
             paddingTop: "0"
         });
-        timer = setTimeout(hideMessage, 4000);
+        timer = setTimeout(hideCopyMessage, 4000);
     }   
 
-    function hideMessage(){
+    function hideCopyMessage(){
         $(".feedback-2").animate({
             opacity: "0",   
         })
@@ -165,6 +165,28 @@
             paddingTop: "20"
         });
         clearTimeout(timer);
+    }
+
+    let timer2;
+    function showInputMessage(msg) {
+        $(".feedback-1").animate({
+            opacity: "1",   
+        })
+        $(".feedback-1 p").animate({
+            paddingTop: "0"
+        });
+        $(".feedback-1 p").text(msg);
+        timer2 = setTimeout(hideInputMessage, 4000);
+    }   
+
+    function hideInputMessage(){
+        $(".feedback-1").animate({
+            opacity: "0",   
+        })
+        $(".feedback-1 p").animate({
+            paddingTop: "20"
+        });
+        clearTimeout(timer2);
     }
 
     // GOOGLE WEB FONTS API
@@ -218,19 +240,24 @@
     $("#generate-btn").click(function(e){
         e.preventDefault();
         var pValue = $("#num-p-value").val();
-        var sValue = $("#num-s-value").val();
-        var wValue = $("#num-w-value").val();
-        generationReq(pValue, sValue, wValue);
+        if(pValue === ""){
+            showInputMessage("Please enter some settings above!");
+        }
+        else if(pValue > 5 || pValue <= 0){
+            console.log("No");
+            showInputMessage("Please correct the paragraph setting!");
+        }
+        else {
+            generationReq(pValue);
+        }
     });
 
-    function generationReq(p, s, w){
+    function generationReq(p){
         $.ajax({
             method: "GET",
             url: `http://localhost:3000/api/functional/text/`,
             data: {
                 p: p,
-                s: s,
-                w: w
             },
             success: function(res){
                 console.log("API call success");
