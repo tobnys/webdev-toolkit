@@ -69,10 +69,10 @@
             <div class="col-12">
                 <form name="login-form">
                     <label for="username">Username</label>
-                    <input type="text">
+                    <input type="text" id="login-username">
                     <label for="password">Password</label>
-                    <input type="password">
-                    <button type="submit">Login</button>
+                    <input type="password" id="login-password">
+                    <button id="login-btn">Login</button>
                 </form>
             </div>
         </div>
@@ -112,20 +112,17 @@
                         <legend>Settings</legend>
                         <label id="num-paragraphs" for="paragraph">Number of paragraphs (1-5)</label>
                         <input id="num-p-value" type="number" name="paragraph">
-                        <button id="generate-btn" type="submit">Generate</button>
                     </form>
                 </div>
                 <div class="bottom-button-container">
-                    <button id="randomize-btn">Random settings</button>
+                    <button id="generate-btn" type="submit">Generate</button>
                 </div>
                 <div class="feedback-container feedback-1">
                     <p>Error!</p>
                 </div>
             </div>
             <div class="col-6">
-                <div class="output-container">
-                    <p id="output-text">Loremasdasdasdasd porta quam. Aliquam id viverra orci. Donec hendrerit, eros quis convallis fermentum, felis lectus imperdiet eros, non scelerisque velit sem eu sem. Donec risus dolor, porttitor ut est eu, ullamcorper placerat erat. Sed id mi sem. Sed tincidunt, augue eu venenatis tempor, libero augue faucibus urna, et venenatis mi nisi ac erat. Aliquam vel efficitur elit. Maecenas sed dapibus dui. Donec volutpat ut nisi eu elementum. Maecenas sed eros in nulla pharetra facilisis. Proin libero mauris, accumsan eu nunc quis, convallis hendrerit leo.</p>
-                </div>
+                <div class="output-container"></div>
                 <div class="bottom-button-container">
                     <button id="copy-btn">Copy</button>
                 </div>
@@ -267,6 +264,41 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum tristique tellus et iaculis. Curabitur quis erat at orci facilisis molestie. Vestibulum porta rutrum nisi ac pharetra.</p>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD PAGE -->
+    <section class="dashboard-page">
+        <header>
+        <div class="col-12">
+            <h1>Dashboard</h1>
+        </div>
+        </header>
+        <div class="row">
+            <div class="col-12">
+                <div class="statistics-container">
+                    <h2>Application Statistics</h2>
+                    <p class="center">Welcome USER to the dashboard, in here you can find statistics about the application!</p>
+                    <div class="col-4">
+                            <h4>Total amount of successful logins...</h4>
+                            <div class="sub-statistics-container">
+                                <h3>0</h3>
+                            </div>
+                    </div>
+                    <div class="col-4">
+                            <h4>Total amount of strings generated...</h4>
+                            <div class="sub-statistics-container">
+                                <h3>0</h3>
+                            </div>
+                    </div>
+                    <div class="col-4">
+                            <h4>Total amount of fonts generated...</h4>
+                            <div class="sub-statistics-container">
+                                <h3>0</h3>
+                            </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

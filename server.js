@@ -4,12 +4,13 @@ const morgan = require("morgan");
 const config = require("./config");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const passport = require("passport");
 const cors = require("cors");
+const passport = require("passport");
 const BasicStrategy = require("passport-http").BasicStrategy;
 
 // OBJECT DESTRUCTURING
 const {functionalRouter, usersRouter} = require("./api/exports");
+const {Statistics} = require("./models/statistics");
 
 // MONGOOSE PROMISES
 mongoose.Promise = global.Promise;
@@ -46,12 +47,29 @@ app.use(function(req, res, next) {
     next();
 });
 
-// Catch all other routes that do not send a response and give an error message to the client.
-
 // Seed database function
+function seedDatabase(){
+    console.log("Seeding database");
+    Statistics.create({
+        id: 1,
+        stringsGenerated: 0,
+        successfulLogins: 0,
+        fontsGenerated: 0,
+    });
+}
 
 // Check for database collections and seed if nothing is found
-
+Statistics.findOne({id: 1}).exec().then(function(result){
+    if(result === null){
+        seedDatabase();
+    }
+    else {
+        console.log("Database already populated, not seeding."); 
+    }
+}).catch(err => {
+    console.error(err);
+    res.sendStatus(500);
+}); 
 
 let server;
 function runServer() {

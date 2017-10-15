@@ -141,7 +141,7 @@
     }
 
     $("#copy-btn").click(function(e){
-        copyToClipboard("#output-text");
+        copyToClipboard(".output-container");
         showCopyMessage();
     });
 
@@ -262,11 +262,16 @@
             success: function(res){
                 console.log("API call success");
                 console.log(res);
+                appendGeneration(res);
             },
             error: function(err){
                 console.log("API call failed")
             },
         })
+    }
+
+    function appendGeneration(s){
+        $(".output-container").append(s);
     }
 
     // LOGIN / REGISTER FUNCTIONALITY
@@ -295,4 +300,43 @@
         });
     }
 
+    $("#login-btn").click(function(e){
+        e.preventDefault();
+        var usernameVal = $("#login-username").val();
+        var passwordVal = $("#login-password").val();
+        loginUser(usernameVal, passwordVal);
+    });
+
+    function loginUser(u, p){
+        $.ajax({
+            method: "POST",
+            url: `http://localhost:3000/api/users/login`,
+            data: {
+                username: u,
+                password: p
+            },
+            success: function(res){
+                console.log("API call success");
+                console.log(res);
+                redirectWelcome(res);
+            },
+            error: function(err){
+                console.log("API call failed");
+            }});
+    }
+
+    function redirectWelcome(user){
+        $(`${originalPage}`).animate({
+            left: "250px",
+            opacity: "0"
+        }, 200, function(){
+            $(this).css("display", "none");
+            $(`${targetPage}`).css("display", "block");
+            $(`${targetPage}`).animate({
+                opacity: "1"
+            }, 200, function(){
+                currentPage = `${targetPage}`;
+            });
+        });
+    };
 })();

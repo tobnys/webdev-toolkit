@@ -1,18 +1,100 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
 const passport = require('passport');
 const bcrypt = require("bcryptjs");
 
-const {User} = require('../models/user');;
+const {User} = require('../models/user');
 
 const usersRouter = express.Router();
 const jsonParser = bodyParser.json();
 
-usersRouter.post("/login", (req, res) => {
-    let userName = req.body.username;
-    let password = req.body.password;
+mongoose.Promise = global.Promise;
 
-    User.findOne({userName: userName}, (items, err) => {
+usersRouter.get("/test", (req, res) => {
+    User.findOne({username: "asdasdasd"}).exec().then(function(user){
+        console.log(user);
+    }).catch(err => {
+        console.error(err);
+        res.sendStatus(500);
+    });
+});
+
+usersRouter.post("/login", (req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+    User.findOne({username: username}).exec().then(user => {
+        if (!user) {
+            return res.status(401).json({
+                message: "Not found!"
+            });
+        } 
+        else {
+            user.validatePassword(req.body.password, function(err, isValid) {
+                if (err) {
+                    console.log('There was an error validating the password.');
+                }
+                if (!isValid) {
+                    return res.status(401).json({
+                        message: "Not found"
+                    });
+                } else {
+                    var logInTime = new Date();
+                    console.log(`User ${username} logged in at ${logInTime}`);
+                    return res.json(user);
+                }
+            });
+        };
+    }).catch(err => {
+        console.error(err);
+        res.sendStatus(500);
+    });
+});
+
+usersRouter.post("/register", (req, res) => {
+    console.log(req.body);
+    let username = req.body.username;
+    username = username.trim();
+    let password = req.body.password;
+    password = password.trim();
+
+    bcrypt.genSalt(10, function(err, salt) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal server error'
+            });
+        }
+
+        bcrypt.hash(password, salt, function(err, hash) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal server error'
+                });
+            }
+        
+        User.create({
+            username: username,
+            password: hash,
+        }, function(err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            if(item) {
+                console.log("User `" + username + "` created.");
+                return res.json(item);
+            }
+        });
+        });
+    });
+});
+
+module.exports = {usersRouter};
+
+/*
+
+    User.findOne({username: username}, (items, err) => {
         if(err){
             return res.status(500).json({
                 message: "Internal server error"
@@ -32,42 +114,11 @@ usersRouter.post("/login", (req, res) => {
                 }
                 else {
                     var logTime = new Date();
-                    console.log(`User ${userName} logged in at ${logTime}`);
+                    console.log(`User ${username} logged in at ${logTime}`);
                     return res.json(items);
                 }
             })
         }
     });
-});
 
-usersRouter.post("/register", (req, res) => {
-    console.log(req.body);
-    let userName = req.body.username;
-    userName = userName.trim();
-    let password = req.body.password;
-    password = password.trim();
-
-    bcrypt.genSalt(10, (err, salt) => {
-        if(err){
-            return res.sendStatus(500);
-        }
-
-        bcrypt.hash(password, salt, (err, hash) => {
-            if(err){
-                return res.sendStatus(500);
-            }
-        });
-
-        User.create({username: userName, password: hash}, (err, item) => {
-            if(err){
-                return res.sendStatus(500);
-            }
-            if(item){
-                console.log(`${userName} was created.`);
-                return res.json(item);
-            }
-        });
-    });
-});
-
-module.exports = {usersRouter};
+*/
