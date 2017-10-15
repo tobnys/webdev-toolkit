@@ -269,4 +269,30 @@
         })
     }
 
+    // LOGIN / REGISTER FUNCTIONALITY
+    $("#register-btn").click(function(e){
+        e.preventDefault();
+        var usernameVal = $("#register-username").val();
+        var passwordVal = $("#register-password").val();
+        registerUser(usernameVal, passwordVal);
+    });
+
+    function registerUser(u, p){
+        $.ajax({
+            method: "POST",
+            url: `http://localhost:3000/api/users/register`,
+            data: {
+                username: u,
+                password: p
+            },
+            success: function(res){
+                console.log("API call success");
+                console.log(res);
+            },
+            error: function(err){
+                console.log("API call failed")
+            },
+        });
+    }
+
 })();

@@ -14,6 +14,7 @@ functionalRouter.get("/fonts/:sort", (req, res) => {
             sort: req.params.sort
         }
     }).then((_res) => {
+        console.log(_res.data.items[0]);
         res.send(_res.data);
     }).catch((err) => {
         if(err){
@@ -28,7 +29,7 @@ functionalRouter.get("/text/", (req, res) => {
 });
 
 function generateString(p) {
-    
+    // https://github.com/traviskaufman/node-lipsum
 };
 
 module.exports = {functionalRouter};
