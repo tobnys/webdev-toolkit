@@ -40,7 +40,7 @@ usersRouter.post("/login", (req, res) => {
         console.error(err);
         res.sendStatus(500);
     });
-});
+}); 
 
 usersRouter.post("/register", (req, res) => {
     console.log(req.body);
