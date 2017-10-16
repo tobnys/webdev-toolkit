@@ -47,9 +47,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-// Seed database function
-function seedDatabase(){
-    console.log("Seeding database");
+// Seed statistics database function
+function seedStatisticsDatabase(){
+    console.log("Seeding `STATISTICS` database");
     Statistics.create({
         id: 1,
         stringsGenerated: 5,
@@ -61,10 +61,10 @@ function seedDatabase(){
 // Check for database collections and seed if nothing is found
 Statistics.findOne({id: 1}).exec().then(function(result){
     if(result === null){
-        seedDatabase();
+        seedStatisticsDatabase();
     }
     else {
-        console.log("Database already populated, not seeding."); 
+        console.log("Database `STATISTICS` already populated, not seeding."); 
     }
 }).catch(err => {
     console.error(err);

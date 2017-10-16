@@ -355,4 +355,17 @@
                 console.log("API call failed");
         }});
     }
+
+    $("#redirect-text").click(function(e){
+        switchPage(".dashboard-page", ".generation-page");
+    });
+
+    $("#redirect-cheat").click(function(e){
+        switchPage(".dashboard-page", ".category-page");
+    });
+
+    $("#redirect-font").click(function(e){
+        switchPage(".dashboard-page", ".font-page");
+    });
+
 })();
