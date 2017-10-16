@@ -11,15 +11,6 @@ const jsonParser = bodyParser.json();
 
 mongoose.Promise = global.Promise;
 
-usersRouter.get("/test", (req, res) => {
-    User.findOne({username: "asdasdasd"}).exec().then(function(user){
-        console.log(user);
-    }).catch(err => {
-        console.error(err);
-        res.sendStatus(500);
-    });
-});
-
 usersRouter.post("/login", (req, res) => {
     let username = req.body.username;
     let password = req.body.password;

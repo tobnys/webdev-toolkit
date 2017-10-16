@@ -660,8 +660,8 @@ a:-webkit-any-link {
 
 .dashboard-page {
     padding-bottom: 40px;
-    opacity: 1;
-    display: block;    
+    opacity: 0;
+    display: none;    
 }
 
 .statistics-container {
@@ -675,7 +675,7 @@ a:-webkit-any-link {
     padding: 20px;
     text-align: center;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .statistics-container p {
@@ -709,7 +709,7 @@ a:-webkit-any-link {
 }
 
 .sub-statistics-container h3 {
-    font-size: 80px;
+    font-size: 60px;
     text-align: center;
     color: white;
 }

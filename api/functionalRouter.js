@@ -7,6 +7,7 @@ const loremIpsum = require("lorem-ipsum")
 // L-I
 let output = loremIpsum();
 
+// OBJECT DESTRUCTURING
 const {User} = require('../models/user');
 const {Statistics} = require("../models/statistics");
 
@@ -19,7 +20,6 @@ functionalRouter.get("/fonts/:sort", (req, res) => {
             sort: req.params.sort
         }
     }).then((_res) => {
-        console.log(_res.data.items[0]);
         res.send(_res.data);
     }).catch((err) => {
         if(err){
@@ -43,11 +43,11 @@ functionalRouter.get("/text/", (req, res) => {
 
 functionalRouter.get("/statistics", (req, res) => {
     Statistics.findOne({id: 1}).exec().then(function(result){
-        
+        res.json(result);
     }).catch(err => {
         console.error(err);
         res.sendStatus(500);
-    }); 
+    });
 });
 
 module.exports = {functionalRouter};

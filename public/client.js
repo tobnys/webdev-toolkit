@@ -193,7 +193,7 @@
     function webFontsReq(target){
         $.ajax({
             method: "GET",
-            url: `http://localhost:3000/api/functional/fonts/${target}`,
+            url: `/api/functional/fonts/${target}`,
             success: function(res){
                 console.log("API call success");
                 appendHTML(res);
@@ -255,7 +255,7 @@
     function generationReq(p){
         $.ajax({
             method: "GET",
-            url: `http://localhost:3000/api/functional/text/`,
+            url: `/api/functional/text/`,
             data: {
                 p: p,
             },
@@ -285,7 +285,7 @@
     function registerUser(u, p){
         $.ajax({
             method: "POST",
-            url: `http://localhost:3000/api/users/register`,
+            url: `/api/users/register`,
             data: {
                 username: u,
                 password: p
@@ -310,33 +310,49 @@
     function loginUser(u, p){
         $.ajax({
             method: "POST",
-            url: `http://localhost:3000/api/users/login`,
+            url: `/api/users/login`,
             data: {
                 username: u,
                 password: p
             },
             success: function(res){
                 console.log("API call success");
-                console.log(res);
                 redirectWelcome(res);
             },
             error: function(err){
                 console.log("API call failed");
-            }});
+        }});
     }
 
     function redirectWelcome(user){
-        $(`${originalPage}`).animate({
+        $(currentPage).animate({
             left: "250px",
             opacity: "0"
         }, 200, function(){
             $(this).css("display", "none");
-            $(`${targetPage}`).css("display", "block");
-            $(`${targetPage}`).animate({
+            $(".dashboard-page").css("display", "block");
+            $(".dashboard-page").animate({
                 opacity: "1"
             }, 200, function(){
-                currentPage = `${targetPage}`;
+                currentPage = ".dashboard-page";
             });
         });
+        populateDashboard();
     };
+
+    function populateDashboard(){
+        $.ajax({
+            method: "GET",
+            url: `/api/functional/statistics`,
+            success: function(res){
+                console.log("API call success");
+                // APPEND TEXT
+                $("#num-logins").text(res.successfulLogins);
+                $("#num-strings").text(res.stringsGenerated);
+                $("#num-fonts").text(res.fontsGenerated);
+            },
+            error: function(err){
+                console.log("API call failed");
+        }});
+    }
 })();

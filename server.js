@@ -52,9 +52,9 @@ function seedDatabase(){
     console.log("Seeding database");
     Statistics.create({
         id: 1,
-        stringsGenerated: 0,
-        successfulLogins: 0,
-        fontsGenerated: 0,
+        stringsGenerated: 5,
+        successfulLogins: 5,
+        fontsGenerated: 5,
     });
 }
 
