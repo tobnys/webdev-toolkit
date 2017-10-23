@@ -4,6 +4,11 @@
 Link to live application: https://webdev-toolkit.herokuapp.com/
 
 # Screenshots
+![image1](https://i.gyazo.com/d25de5a06546f4518a3ebfdd07314075.png)
+
+![image2](https://i.gyazo.com/111d6234c74eb1fc1c13944427b07c17.png)
+
+![image3](https://i.gyazo.com/9c2cb3ba45c7387a7cbfe5981f4c3235.png)
 
 # Goal & Use Case
 
@@ -21,7 +26,21 @@ Retrieves statistics from a database which contains information about the applic
 
 # Functionality
 
-# Technical stack
-Front-end:
 
+# Technical stack
+
+**Front-end**
+ * HTML5
+ * CSS3
+ * JavaScript
+ * jQuery 
+ 
+**Back-end**
+ * NodeJS
+ * Mongoose / MongoDB
+ * Heroku (hosting)
+
+**Testing**
+ * Mocha & Chai
+ * TravisCI
 
