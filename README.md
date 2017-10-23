@@ -3,13 +3,6 @@
 
 Link to live application: https://webdev-toolkit.herokuapp.com/
 
-# Screenshots
-![image1](https://i.gyazo.com/d25de5a06546f4518a3ebfdd07314075.png)
-
-![image2](https://i.gyazo.com/111d6234c74eb1fc1c13944427b07c17.png)
-
-![image3](https://i.gyazo.com/9c2cb3ba45c7387a7cbfe5981f4c3235.png)
-
 # Goal & Use Case
 
 The goal of the application was (outside of learning) to simply bring a collection of frequently used tools for a web developer, such as lorem ipsum generation, cheat sheets and popular/common fonts for the web. I wanted to combine these "functions" into one single application that would be easily accessible on the web and easily used.
@@ -34,13 +27,22 @@ Retrieves statistics from a database which contains information about the applic
  * CSS3
  * JavaScript
  * jQuery 
+ * Web Font Loader
  
 **Back-end**
  * NodeJS
  * Mongoose / MongoDB
  * Heroku (hosting)
+ * Axios
 
 **Testing**
  * Mocha & Chai
  * TravisCI
 
+
+# Screenshots
+![image1](https://i.gyazo.com/d25de5a06546f4518a3ebfdd07314075.png)
+
+![image2](https://i.gyazo.com/111d6234c74eb1fc1c13944427b07c17.png)
+
+![image3](https://i.gyazo.com/9c2cb3ba45c7387a7cbfe5981f4c3235.png)
