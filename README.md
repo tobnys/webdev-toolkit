@@ -19,7 +19,6 @@ Retrieves statistics from a database which contains information about the applic
 
 # Functionality
 
-
 # Technical stack
 
 **Front-end**
@@ -38,7 +37,14 @@ Retrieves statistics from a database which contains information about the applic
 **Testing**
  * Mocha & Chai
  * TravisCI
-
+ 
+**Responsiveness**
+ * The site is fully responsive on most mobile & laptop devices.
+ * Tested on Chrome, Firefox & Safari.
+ 
+**Security**
+ * Passport
+ * Bcrypt
 
 # Screenshots
 ![image1](https://i.gyazo.com/d25de5a06546f4518a3ebfdd07314075.png)
@@ -46,3 +52,9 @@ Retrieves statistics from a database which contains information about the applic
 ![image2](https://i.gyazo.com/111d6234c74eb1fc1c13944427b07c17.png)
 
 ![image3](https://i.gyazo.com/9c2cb3ba45c7387a7cbfe5981f4c3235.png)
+
+# User Stories
+User stories as visitor & wireframes
+
+# Development Roadmap
+
