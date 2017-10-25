@@ -20,6 +20,7 @@ functionalRouter.get("/fonts/:sort", (req, res) => {
             sort: req.params.sort
         }
     }).then((_res) => {
+        Statistics.update({id: 1}, {$inc: {fontsGenerated: 6}});
         res.send(_res.data);
     }).catch((err) => {
         if(err){
@@ -38,6 +39,7 @@ functionalRouter.get("/text/", (req, res) => {
       , paragraphUpperBound: 7        // Maximum sentences per paragraph. 
       , format: 'html'               // Plain text or html
     });
+    Statistics.update({id: 1}, {$inc: {stringsGenerated: 1}});
     res.send(output);
 });
 

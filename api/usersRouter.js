@@ -32,9 +32,10 @@ usersRouter.post("/login", (req, res) => {
                 } else {
                     var logInTime = new Date();
                     console.log(`User ${username} logged in at ${logInTime}`);
+                    Statistics.update({id: 1}, {$inc: {successfulLogins: 1}});
                     return res.json(user);
                 }
-            });
+            }); 
         };
     }).catch(err => {
         console.error(err);
