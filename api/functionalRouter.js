@@ -20,7 +20,9 @@ functionalRouter.get("/fonts/:sort", (req, res) => {
             sort: req.params.sort
         }
     }).then((_res) => {
-        Statistics.update({id: 1}, {$inc: {fontsGenerated: 6}});
+        Statistics.update({id: 1}, {$inc: {fontsGenerated: 6}}, function(err, doc) {
+            console.log("Font statistics updated.");
+        });
         res.send(_res.data);
     }).catch((err) => {
         if(err){
@@ -39,7 +41,9 @@ functionalRouter.get("/text/", (req, res) => {
       , paragraphUpperBound: 7        // Maximum sentences per paragraph. 
       , format: 'html'               // Plain text or html
     });
-    Statistics.update({id: 1}, {$inc: {stringsGenerated: 1}});
+    Statistics.update({id: 1}, {$inc: {stringsGenerated: 1}}, function(err, doc) {
+        console.log("String statistics updated.");
+    });
     res.send(output);
 });
 

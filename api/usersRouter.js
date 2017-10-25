@@ -33,7 +33,9 @@ usersRouter.post("/login", (req, res) => {
                 } else {
                     var logInTime = new Date();
                     console.log(`User ${username} logged in at ${logInTime}`);
-                    Statistics.update({id: 1}, {$inc: {successfulLogins: 1}});
+                    Statistics.update({id: 1}, {$inc: {successfulLogins: 1}}, function(err, doc) {
+                        console.log("User statistics updated.");
+                    });
                     return res.json(user);
                 }
             }); 
