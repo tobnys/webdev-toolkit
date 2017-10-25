@@ -5,6 +5,7 @@ const passport = require('passport');
 const bcrypt = require("bcryptjs");
 
 const {User} = require('../models/user');
+const {Statistics} = require("../models/statistics");
 
 const usersRouter = express.Router();
 const jsonParser = bodyParser.json();
