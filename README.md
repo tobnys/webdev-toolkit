@@ -87,11 +87,11 @@ Retrieves statistics from a database which contains information about the applic
 
 # Development Roadmap
 
-Planned additional features and improvements will allow users to:
+### Version 1.1
+ * Add "lorem pixel" as a feature.
+ ** "Lorem Pixel" is an existing idea which I would like to implement to this application, the feature allows a user to specify width, height and other properties in order to render a placeholder image for their website free of any copyright. 
+ * Switch from 3rd party API usage to a custom created feature in regards to the lorem ipsum generation in order to make it more customizable.
 
-Be presented with motivational quotations that appear at random on their homepage.
-Enter and store compliments they receive from friends, co-workers, bosses, etc. in a "Bank"; and
-Refer back to these compliments (that help them to see that they are qualified and skilled) by viewing the "Bank."
-Change password
-Update email address
-
+### Version 1.2
+ * Let users be able to register with an e-mail address in order to create a newsletter with fun facts and/or developer news.
+ * Let users be able to change their password/email.
