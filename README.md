@@ -55,6 +55,7 @@ Retrieves statistics from a database which contains information about the applic
 
 # User Stories
 User stories as visitor & wireframes
+![image1](https://raw.githubusercontent.com/tobnys/webdev-toolkit-final-capstone/master/github-images/landingpage.png)
 
 # Development Roadmap
 
