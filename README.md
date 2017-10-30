@@ -9,43 +9,6 @@ The goal of the application was (outside of learning) to simply bring a collecti
 
 Currently, the main functionalities of the site is for example the lorem ipsum generator, which uses a 3rd party API to generate a string or a paragraph given a set amount of settings. Initially I tasked myself to create my own custom generator that would have a database filled with strings that would in turn generate a proper sentence (that would actually make sense), but being that I had a set deadline for this project I decided to descope it down further and use a common API for it instead in the form of an NPM package.
 
-# API Documentation
-### GET endpoint - ../api/functional/fonts/:sort
-Retrieves fonts from the google web fonts API based on sort parameter.
-
-### GET endpoint - ../api/functional/text
-Generates and returns a text with a set amount of paragraphs based on a query option sent to the server. This endpoint uses the package called "loremIpsum" to generate the paragraphs.
-
-### GET endpoint - ../api/functional/statistics
-Retrieves statistics from a database which contains information about the application in general, for example, total amount of API calls. This is used in the application to show fun facts about the application.
-
-# Technical stack
-
-**Front-end**
- * HTML5
- * CSS3
- * JavaScript
- * jQuery 
- * Web Font Loader
- 
-**Back-end**
- * NodeJS
- * Mongoose / MongoDB
- * Heroku (hosting)
- * Axios
-
-**Testing**
- * Mocha & Chai
- * TravisCI
- 
-**Responsiveness**
- * The site is fully responsive on most mobile & laptop devices.
- * Tested on Chrome, Firefox & Safari.
- 
-**Security**
- * Passport
- * Bcrypt
-
 # Screenshots
 ![image1](https://i.gyazo.com/d25de5a06546f4518a3ebfdd07314075.png)
 
@@ -84,6 +47,43 @@ Retrieves statistics from a database which contains information about the applic
  * User can select to view a link list or cheat sheets --> Gets redirected to the selected list/sheet.
 
 ![image1](https://raw.githubusercontent.com/tobnys/webdev-toolkit-final-capstone/master/github-images/cheatsheetquicklinkpage.png)
+
+# API Documentation
+### GET endpoint - ../api/functional/fonts/:sort
+Retrieves fonts from the google web fonts API based on sort parameter.
+
+### GET endpoint - ../api/functional/text
+Generates and returns a text with a set amount of paragraphs based on a query option sent to the server. This endpoint uses the package called "loremIpsum" to generate the paragraphs.
+
+### GET endpoint - ../api/functional/statistics
+Retrieves statistics from a database which contains information about the application in general, for example, total amount of API calls. This is used in the application to show fun facts about the application.
+
+# Technical stack
+
+**Front-end**
+ * HTML5
+ * CSS3
+ * JavaScript
+ * jQuery 
+ * Web Font Loader
+ 
+**Back-end**
+ * NodeJS
+ * Mongoose / MongoDB
+ * Heroku (hosting)
+ * Axios
+
+**Testing**
+ * Mocha & Chai
+ * TravisCI
+ 
+**Responsiveness**
+ * The site is fully responsive on most mobile & laptop devices.
+ * Tested on Chrome, Firefox & Safari.
+ 
+**Security**
+ * Passport
+ * Bcrypt
 
 # Development Roadmap
 
