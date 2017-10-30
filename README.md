@@ -9,7 +9,7 @@ The goal of the application was (outside of learning) to simply bring a collecti
 
 Currently, the main functionalities of the site is for example the lorem ipsum generator, which uses a 3rd party API to generate a string or a paragraph given a set amount of settings. Initially I tasked myself to create my own custom generator that would have a database filled with strings that would in turn generate a proper sentence (that would actually make sense), but being that I had a set deadline for this project I decided to descope it down further and use a common API for it instead in the form of an NPM package.
 
-## API Documentation
+# API Documentation
 ### GET endpoint - ../api/functional/fonts/:sort
 Retrieves fonts from the google web fonts API based on sort parameter.
 
@@ -53,9 +53,37 @@ Retrieves statistics from a database which contains information about the applic
 
 ![image3](https://i.gyazo.com/9c2cb3ba45c7387a7cbfe5981f4c3235.png)
 
-# User Stories
-User stories as visitor & wireframes
+# User Stories & Initial UX
+
+**Landing Page**
+ * User is able to navigate through the application using the navigation bar.
+ * The user is also exposed to the landing page information and can also view a footer which has several links in it that the user can click.
+ 
 ![image1](https://raw.githubusercontent.com/tobnys/webdev-toolkit-final-capstone/master/github-images/landingpage.png)
+
+**Login/Signup Page**
+ * User enters valid information in all forms --> Successful login/signup and redirection back to previous page
+ * User enters invalid information in some or all forms --> Unsuccessful login/signup, application checks which field(s) are incorrect and sends information to the user regarding this.
+
+![image1](https://raw.githubusercontent.com/tobnys/webdev-toolkit-final-capstone/master/github-images/loginsignuppage.png)
+
+**Generation Page**
+ * User enters information into form fields which specifies the settings for the output --> Output is shown to the user on submission.
+ * User randomly generates something on the page using a button --> Output is shown to the user on submission.
+
+![image1](https://raw.githubusercontent.com/tobnys/webdev-toolkit-final-capstone/master/github-images/generationpage.png)
+
+**Font Page**
+ * User gets a list of sort options on the page that renders new fonts to the page.
+ * User can click the font "cards" and be redirected to the selected font at google web fonts.
+
+![image1](https://raw.githubusercontent.com/tobnys/webdev-toolkit-final-capstone/master/github-images/fontspage.png)
+
+**Cheat Sheet Page**
+ * User selects a category from a list --> Gets redirected to the selected category.
+ * User can select to view a link list or cheat sheets --> Gets redirected to the selected list/sheet.
+
+![image1](https://raw.githubusercontent.com/tobnys/webdev-toolkit-final-capstone/master/github-images/cheatsheetquicklinkpage.png)
 
 # Development Roadmap
 
