@@ -66,6 +66,7 @@ Retrieves statistics from a database which contains information about the applic
  * JavaScript
  * jQuery 
  * Web Font Loader
+ * React & Redux
  
 **Back-end**
  * NodeJS
